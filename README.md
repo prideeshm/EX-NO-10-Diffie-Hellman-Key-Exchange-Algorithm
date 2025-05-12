@@ -1,5 +1,9 @@
 # EX-NO-10-Diffie-Hellman-Key-Exchange-Algorithm
 
+## DATE: 12.05.2025
+## NAME: PRIDEESH M
+## REG NO: 212223040154
+
 ## AIM:
 To Implement Diffie Hellman Key Exchange Algorithm 
 
@@ -19,10 +23,42 @@ To Implement Diffie Hellman Key Exchange Algorithm
 5. Security: The difficulty of computing discrete logarithms ensures that the shared key remains secure even if public values are intercepted.
 
 ## Program:
-
+```
+#include <math.h> 
+#include <stdio.h>
+long long int power(long long int a, long long int b, long long int P)
+{
+if (b == 1) 
+return a;
+else
+return (((long long int)pow(a, b)) % P);
+}
+int main()
+{
+long long int P, G, x, a, y, b, ka, kb;
+printf("\n**Diffie-Hellman Key Exchange algorithm\n\n"); 
+printf("\n\nEnter the value of P: ");
+scanf("%lld",&P); 
+printf("The value of P: %lld\n", P);
+printf("Enter the value of G (Primitive root of P): "); 
+scanf("%lld",&G);
+printf("The value of G: %lld\n\n", G);
+printf("The private key a for Alice : %lld\n", a); 
+x = power(G, a, P); 
+b = 3; 
+printf("The private key b for Bob : %lld\n\n", b); 
+y = power(G, b, P);
+ka = power(y, a, P); 
+kb = power(x, b, P); 
+printf("Secret key for the Alice is : %lld\n", ka); 
+printf("Secret Key for the Bob is : %lld\n", kb);
+return 0;
+}
+```
 
 
 ## Output:
+![Screenshot 2025-05-12 140227](https://github.com/user-attachments/assets/cf113625-5cd0-4ccc-9f27-fdec40783565)
 
 
 
